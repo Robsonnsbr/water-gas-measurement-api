@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      # - MONGO_URI=${MONGO_URI}
+      # - BASE_URL_SERVICE${BASE_URL_SERVICE}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - .:/usr/src/server
+    command: ["npm", "start"]
