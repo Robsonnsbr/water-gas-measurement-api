@@ -23,16 +23,16 @@ utilizando Node.js, Express e MongoDB, com suporte para integração com a API G
 │   ├── routes
 │   │   └── measureRoutes.ts       # Define as rotas da API
 │   ├── utils
-│   └── types.ts                  # Types/interfaces
-│   │   └── validators.ts         # Validação de dados
+│   └── types.ts                   # Types/interfaces
+│   │   └── validators.ts          # Validação de dados
 │   ├── services
-│   │   └── geminiService.ts      # Integração com a API Gemini para análise de imagens
-│   ├── app.ts                    # Arquivo que configura o aplicativo Express
-│   └── server.ts                 # Arquivo que inicializa o servidor Express
-├── .env.example                  # Exemplos das variáveis de ambiente necessárias para o projeto
-├── docker-compose.yml            # Arquivo para subir o ambiente Docker
-├── Dockerfile                    # Dockerfile para construir a imagem da aplicação
-└── README.md                     # Documentação do projeto
+│   │   └── geminiService.ts       # Integração com a API Gemini para análise de imagens
+│   ├── app.ts                     # Arquivo que configura o aplicativo Express
+│   └── server.ts                  # Arquivo que inicializa o servidor Express
+├── .env.example                   # Exemplos das variáveis de ambiente necessárias para o projeto
+├── docker-compose.yml             # Arquivo para subir o ambiente Docker
+├── Dockerfile                     # Dockerfile para construir a imagem da aplicação
+└── README.md                      # Documentação do projeto
 ```
 
 ## Requisitos
