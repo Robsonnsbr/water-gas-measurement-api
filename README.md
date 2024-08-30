@@ -23,7 +23,7 @@ utilizando Node.js, Express e MongoDB, com suporte para integração com a API G
 │   ├── routes
 │   │   └── measureRoutes.ts       # Define as rotas da API
 │   ├── utils
-│   └── types.ts                   # Types/interfaces
+│   │   └── types.ts               # Tipos/Interfaces
 │   │   └── validators.ts          # Validação de dados
 │   ├── services
 │   │   └── geminiService.ts       # Integração com a API Gemini para análise de imagens
