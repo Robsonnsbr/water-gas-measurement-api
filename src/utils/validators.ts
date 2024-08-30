@@ -1,14 +1,4 @@
-type InlineObjProps = {
-  data: string;
-  mimeType: string;
-};
-
-type IValidateInput = {
-  inlineData: InlineObjProps;
-  customer_code: string;
-  measure_datetime: string;
-  measure_type: string;
-};
+import { InlineObjProps, IValidateInput } from "./types";
 
 const isInlineObjProps = (obj: any): obj is InlineObjProps => {
   return (
