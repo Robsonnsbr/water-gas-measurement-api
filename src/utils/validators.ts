@@ -21,9 +21,9 @@ const isInlineObjProps = (obj: any): obj is InlineObjProps => {
     validImageMimeTypes.includes(obj.mimeType)
   );
 };
+
 export const validateInput = (data: IValidateInput): boolean => {
   const { inlineData, customer_code, measure_datetime, measure_type } = data;
-  console.log(isInlineObjProps(inlineData));
 
   if (!isInlineObjProps(inlineData)) return false;
   if (!customer_code || typeof customer_code !== 'string') return false;
