@@ -47,7 +47,6 @@ export const uploadImage = async (req: Request, res: Response) => {
       measure_uuid,
       image_url
     });
-
     await newMeasure.save();
     res.status(200).json({ image_url, measure_value, measure_uuid });
   } catch (error) {
