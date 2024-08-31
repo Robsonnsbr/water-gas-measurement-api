@@ -1,6 +1,6 @@
 # Water Gas Measurement API
 
-Este projeto é uma API para gerenciar medições de água e gás, permitindo o upload de arquivos de 
+Este projeto é uma API para gerenciar medições de água e gás, permitindo o upload de arquivos de
 medição, a confirmação de medidas e a listagem de medições por código de cliente. A API foi construída
 utilizando Node.js, Express e MongoDB, com suporte para integração com a API Gemini para análise de imagens.
 
@@ -44,19 +44,25 @@ MongoDB (local ou hospedado)
 ## Instruções para Rodar o Projeto
 
 ### Clonar projeto:
-````
+
+```
     git clone https://github.com/Robsonnsbr/water-gas-measurement-api.git
-```` 
-### Abrir projeto:   
-````
+```
+
+### Abrir projeto:
+
+```
     cd water-gas-measurement-api
-````    
+```
+
 # IMPORTANTE!
+
 ### 1. Configuração do Ambiente
-Crie um arquivo .env na raiz do projeto e configure as seguinte variável de ambiente: *GEMINI_API_KEY=your_api_key_here*
+
+Crie um arquivo .env na raiz do projeto e configure as seguinte variável de ambiente: _GEMINI_API_KEY=your_api_key_here_
 
 As variáveis de ambiente MONGO_URI e BASE_URL_SERVICE já estão configuradas na raiz do projeto, eliminando a necessidade de configuração manual.
-A chave MONGO_URI, embora sensível, foi incluída para facilitar a execução do projeto em ambiente de teste, com acesso limitado ao banco de dados. 
+A chave MONGO_URI, embora sensível, foi incluída para facilitar a execução do projeto em ambiente de teste, com acesso limitado ao banco de dados.
 Para maior segurança, você pode optar por usar um banco local, definindo MONGO_URI no arquivo .env ou diretamente ao subir o container.
 
 ### 2. Rodando com Docker
@@ -64,18 +70,22 @@ Para maior segurança, você pode optar por usar um banco local, definindo MONGO
 1 - Subir projeto utilizando Docker, siga os passos abaixo:
 Sem arquivo .env criado e variável configurada.
 Linux:
-````
-GEMINI_API_KEY="your_api_key_here"; docker-compose up --build 
-````
+
+```
+GEMINI_API_KEY="your_api_key_here"; docker-compose up --build
+```
+
 PowerShell
-````
- $env:GEMINI_API_KEY="your_api_key_here"; docker-compose up --build 
-````
+
+```
+ $env:GEMINI_API_KEY="your_api_key_here"; docker-compose up --build
+```
 
 Com arquivo .env criado e variável configurada, conforme em (1. Configuração do Ambiente)
-````
+
+```
 docker-compose up --build
-````
+```
 
 2 - Acesse a API:
 A API estará disponível: [http://localhost:3000/api](http://localhost:3000/api).
@@ -85,13 +95,17 @@ A API estará disponível: [http://localhost:3000/api](http://localhost:3000/api
 Caso prefira rodar o projeto localmente sem Docker:
 
 1 - Instale as dependências:
-   ````  
-   npm install
-   ````
+
+```
+npm install
+```
+
 2 - Inicie o servidor:
-  ````
-  npm run dev
-  ````
+
+```
+npm run dev
+```
+
 Acesse a API:
 
 3 - A API estará disponível: [http://localhost:3000/api](http://localhost:3000/api).
@@ -101,3 +115,56 @@ Acesse a API:
 - **GET** /api/:customer_code/list: Lista todas as medidas de um cliente específico.
 - **POST** /api/upload: Faz o upload de um arquivo de medição.
 - **PATCH** /api/confirm: Confirma uma medida.
+
+## Exemplos de utilização
+
+### 1. UPLOAD: Realizar Leitura
+
+**Endpoint:** `POST /api/upload`
+
+**Descrição:** Envia um arquivo em Base64 para a API, que realizará a leitura e extração dos dados especificados
+(consumo total, valor total, data de vencimento, código do cliente e etc...).
+
+**Request Body:**
+
+```json
+{
+  "inlineData": {
+    "data": "Pain text --- just the Base64 value",
+    "mimeType": "image/jpeg"
+  },
+  "customer_code": "410551123",
+  "measure_datetime": "2024-07-30T10:25:30Z",
+  "measure_type": "GAS"
+}
+```
+
+**Endpoint:** `PATCH /api/confirm`
+
+```json
+{
+  "measure_uuid": "UUID fornecido da leitura",
+  "confirmed_value": "## Dados da Conta de Água:\n\n* **Consumo total:** 20 m³ (informado como \"CONSUMO\" na seção \"HISTÓRICO DAS LEITURAS\")\n* **Valor total:** 105,53\n* **Data de vencimento:** 10/10/2019\n* **Código do cliente:** 99999-9 (informado como \"MATRÍCULA\") \n"
+}
+```
+
+**Endpoint:** `GET /api/{customer_code}/list`
+
+**Response**
+
+```json
+[
+  {
+    "measure_uuid": "UUID da leitura 1",
+    "measure_datetime": "2024-07-30T10:25:30Z",
+    "measure_type": "GAS",
+    "confirmed_value": "Dados confirmados da leitura 1"
+  },
+  {
+    "measure_uuid": "UUID da leitura 2",
+    "measure_datetime": "2024-08-01T08:20:00Z",
+    "measure_type": "ELETRICIDADE",
+    "confirmed_value": "Dados confirmados da leitura 2"
+  }
+]
+```
