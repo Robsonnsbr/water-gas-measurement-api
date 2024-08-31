@@ -87,9 +87,6 @@ Com arquivo .env criado e variável configurada, conforme em (1. Configuração 
 docker-compose up --build
 ```
 
-2 - Acesse a API:
-A API estará disponível: [http://localhost:3000/api](http://localhost:3000/api).
-
 ### 3. Rodando Localmente
 
 Caso prefira rodar o projeto localmente sem Docker:
