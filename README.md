@@ -123,13 +123,16 @@ Acesse a API:
 **Endpoint:** `POST /api/upload`
 **Request Body:**
 
+**IMPORTANTE!** O mimeType deve ser compativel com a imagem base64 informada, mimeType aceitos:
+   'image/png' | 'image/jpeg' | 'image/webp' | 'image/heic' | 'image/heif'
+
 ```json
 {
   "inlineData": {
-    "data": "Pain text --- just the Base64 value",
-    "mimeType": "image/jpeg"
+    "data": "/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAoHBwgHBgoICAgL.....",
+    "mimeType": "mimeType da imagem"
   },
-  "customer_code": "410551123",
+  "customer_code": "Cliente1",
   "measure_datetime": "2024-07-30T10:25:30Z",
   "measure_type": "GAS"
 }
