@@ -141,7 +141,7 @@ Acesse a API:
 
 ```json
 {
-  "measure_uuid": "UUID fornecido da leitura",
+  "measure_uuid": "UUID da leitura",
   "confirmed_value": "Dados retornados da api gemini"
 }
 ```
