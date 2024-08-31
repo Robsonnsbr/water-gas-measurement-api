@@ -118,8 +118,6 @@ Acesse a API:
 
 ## Exemplos de utilização
 
-### 1. UPLOAD: Realizar Leitura
-
 **Endpoint:** `POST /api/upload`
 **Request Body:**
 
