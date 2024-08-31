@@ -130,9 +130,9 @@ Acesse a API:
     "data": "/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAoHBwgHBgoICAgL.....",
     "mimeType": "mimeType da imagem"
   },
-  "customer_code": "Cliente1",
-  "measure_datetime": "2024-07-30T10:25:30Z",
-  "measure_type": "GAS"
+  "customer_code": "your-customer_code-hare ex: clienter123",
+  "measure_datetime": "Date frontend ex: 2024-07-30T10:25:30Z",
+  "measure_type": "informar o tipo, ex: GAS/WATER"
 }
 ```
 
@@ -142,11 +142,11 @@ Acesse a API:
 ```json
 {
   "measure_uuid": "UUID fornecido da leitura",
-  "confirmed_value": "## Dados da Conta de Água:\n\n* **Consumo total:** 20 m³ (informado como \"CONSUMO\" na seção \"HISTÓRICO DAS LEITURAS\")\n* **Valor total:** 105,53\n* **Data de vencimento:** 10/10/2019\n* **Código do cliente:** 99999-9 (informado como \"MATRÍCULA\") \n"
+  "confirmed_value": "Dados retornados da api gemini"
 }
 ```
 
-**Endpoint:** `GET /api/{customer_code}/list`
+**Endpoint:** `GET /api/Cliente2/list`
 **Response**
 
 ```json
