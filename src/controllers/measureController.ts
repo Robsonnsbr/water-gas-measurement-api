@@ -35,7 +35,6 @@ export const uploadImage = async (req: Request, res: Response) => {
     }
 
     const measure_value = await GeminiService.extractData(inlineData);
-    console.log(measure_value);
     const measure_uuid = uuidv4();
 
     const image_url = `http://localhost:3000/images/${measure_uuid}`;
@@ -49,7 +48,7 @@ export const uploadImage = async (req: Request, res: Response) => {
       image_url
     });
 
-    // await newMeasure.save();
+    await newMeasure.save();
     res.status(200).json({ image_url, measure_value, measure_uuid });
   } catch (error) {
     console.error('Erro ao processar a imagem:', error);
