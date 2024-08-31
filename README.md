@@ -152,18 +152,20 @@ Acesse a API:
 **Response**
 
 ```json
-[
-  {
-    "measure_uuid": "UUID da leitura 1",
-    "measure_datetime": "2024-07-30T10:25:30Z",
-    "measure_type": "GAS",
-    "confirmed_value": "Dados confirmados da leitura 1"
-  },
-  {
-    "measure_uuid": "UUID da leitura 2",
-    "measure_datetime": "2024-08-01T08:20:00Z",
-    "measure_type": "ELETRICIDADE",
-    "confirmed_value": "Dados confirmados da leitura 2"
-  }
-]
+{
+  "customer_code": "Cliente2",
+  "measures": [
+    {
+      "_id": "66d380c6ab5a0dd19f1c81c9",
+      "customer_code": "Cliente2",
+      "measure_datetime": "2024-07-30T10:25:30.000Z",
+      "measure_type": "WATER",
+      "measure_value": "## Dados da conta de água:\n\n* **Consumo total:** 20 m³ \n* **Valor total:** 105,53\n* **Data de vencimento:** 10/10/2019\n* **Código do cliente:** 99999-9 \n",
+      "measure_uuid": "3bfc30a8-ef9d-4cb4-bea4-25a6927bbc0e",
+      "image_url": "http://localhost:3000/images/3bfc30a8-ef9d-4cb4-bea4-25a6927bbc0e",
+      "has_confirmed": false,
+      "__v": 0
+    }
+  ]
+}
 ```
