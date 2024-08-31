@@ -66,9 +66,8 @@ A chave MONGO_URI, embora sensível, foi incluída para facilitar a execução d
 Para maior segurança, você pode optar por usar um banco local, definindo MONGO_URI no arquivo .env ou diretamente ao subir o container.
 
 ### 2. Rodando com Docker
-
-1 - Subir projeto utilizando Docker, siga os passos abaixo:
-Sem arquivo .env criado e variável configurada.
+**Atenção!** Certifique-se de que o Docker está instalado e em execução.
+1 - Subir projeto utilizando Docker sem arquivo .env criado e/ou variável configurada.
 Linux:
 
 ```
