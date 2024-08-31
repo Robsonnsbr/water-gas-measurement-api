@@ -143,22 +143,22 @@ Acesse a API:
 }
 ```
 
-**Endpoint:** `GET /api/Cliente2/list`
+**Endpoint:** `GET /api/Cliente1/list`
 **Response**
 
 ```json
 {
-  "customer_code": "Cliente2",
+  "customer_code": "Cliente1",
   "measures": [
     {
-      "_id": "66d380c6ab5a0dd19f1c81c9",
-      "customer_code": "Cliente2",
+      "_id": "66d37feeab5a0dd19f1c81c3",
+      "customer_code": "Cliente1",
       "measure_datetime": "2024-07-30T10:25:30.000Z",
-      "measure_type": "WATER",
-      "measure_value": "## Dados da conta de água:\n\n* **Consumo total:** 20 m³ \n* **Valor total:** 105,53\n* **Data de vencimento:** 10/10/2019\n* **Código do cliente:** 99999-9 \n",
-      "measure_uuid": "3bfc30a8-ef9d-4cb4-bea4-25a6927bbc0e",
-      "image_url": "http://localhost:3000/images/3bfc30a8-ef9d-4cb4-bea4-25a6927bbc0e",
-      "has_confirmed": false,
+      "measure_type": "GAS",
+      "measure_value": "- Consumo total: 216 kWh\n- Valor total: R$ 175,57\n- Data de vencimento: 09/03/2018\n- Código do cliente: 13392549",
+      "measure_uuid": "0ab245b9-2c94-42de-9f10-5f48e84f1580",
+      "image_url": "http://localhost:3000/images/0ab245b9-2c94-42de-9f10-5f48e84f1580",
+      "has_confirmed": true,
       "__v": 0
     }
   ]
