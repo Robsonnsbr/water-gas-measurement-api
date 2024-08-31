@@ -121,10 +121,6 @@ Acesse a API:
 ### 1. UPLOAD: Realizar Leitura
 
 **Endpoint:** `POST /api/upload`
-
-**Descrição:** Envia um arquivo em Base64 para a API, que realizará a leitura e extração dos dados especificados
-(consumo total, valor total, data de vencimento, código do cliente e etc...).
-
 **Request Body:**
 
 ```json
@@ -140,6 +136,7 @@ Acesse a API:
 ```
 
 **Endpoint:** `PATCH /api/confirm`
+**Request Body:**
 
 ```json
 {
@@ -149,7 +146,6 @@ Acesse a API:
 ```
 
 **Endpoint:** `GET /api/{customer_code}/list`
-
 **Response**
 
 ```json
