@@ -2,7 +2,8 @@ import { Request, Response } from 'express';
 import { Measure } from '../models/measureModel';
 import { v4 as uuidv4 } from 'uuid';
 import { validateInput } from '../utils/validators';
-import { handleGenerateContent } from '../services/geminiService';
+import { GeminiConnection } from '../services/geminiService';
+const gemini = new GeminiConnection();
 
 //TODO: corrigir fn uploadImage
 export const uploadImage = async (req: Request, res: Response) => {
@@ -34,7 +35,9 @@ export const uploadImage = async (req: Request, res: Response) => {
       });
     }
 
-    const measure_value = await handleGenerateContent(inlineData);
+    await gemini.connect();
+    const measure_value = await gemini.extractData(inlineData);
+    await gemini.disconnect();
     console.log(measure_value);
     const measure_uuid = uuidv4();
 
@@ -49,8 +52,8 @@ export const uploadImage = async (req: Request, res: Response) => {
       image_url
     });
 
-    await newMeasure.save();
-
+    // await newMeasure.save();
+    return;
     res.status(200).json({ image_url, measure_value, measure_uuid });
   } catch (error) {
     console.error('Erro ao processar a imagem:', error);
