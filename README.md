@@ -130,9 +130,9 @@ Acesse a API:
     "data": "/9j/4AAQSkZJRgABAQEBLAEsAAD/2wBDAAoHBwgHBgoICAgL.....",
     "mimeType": "mimeType da imagem"
   },
-  "customer_code": "your-customer_code-hare ex: clienter123",
+  "customer_code": "your-customer_code-here ex: clienter123",
   "measure_datetime": "Date frontend ex: 2024-07-30T10:25:30Z",
-  "measure_type": "informar o tipo, ex: GAS/WATER"
+  "measure_type": "informar o tipo ex: GAS/WATER"
 }
 ```
 
